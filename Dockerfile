@@ -7,8 +7,10 @@ RUN go mod download
 
 COPY *.go ./
 
-RUN go build -o /go-docker-demo
+# Build the binary and place it in the current working directory (/app)
+RUN go build -o docker-go
 
 EXPOSE 8080
 
-CMD [ "/docker-go" ]
+# Run the binary from the current working directory
+CMD [ "./docker-go" ]
